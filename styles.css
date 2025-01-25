@@ -85,9 +85,10 @@ nav {
     background-color: var(--bg-secondary);
     border-radius: 10px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    margin: 0 1rem;
 }
 
 .terminal-header {
@@ -113,7 +114,7 @@ nav {
 }
 
 .terminal-content {
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .command {
@@ -132,8 +133,10 @@ nav {
 }
 
 .description {
-    margin-bottom: 2rem;
-    max-width: 600px;
+    margin-bottom: 1.5rem;
+    max-width: 650px;
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
 .social-links {
@@ -153,8 +156,10 @@ nav {
 
 .profile-section {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .profile-image {
@@ -162,8 +167,8 @@ nav {
 }
 
 .profile-image img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
@@ -203,15 +208,188 @@ nav {
 
     .profile-section {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .profile-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .profile-image img {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .terminal-container {
+        margin: 0 1rem;
+        max-width: calc(100% - 2rem);
+    }
+
+    .terminal-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .profile-text {
+        width: 100%;
+    }
+
+    .description {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .achievement-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .achievement-list li {
+        text-align: center;
+    }
+
+    .achievement-list li:hover {
+        transform: none;
+    }
+
+    .tech-stack {
+        text-align: center;
     }
 
     .social-links {
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 1rem;
     }
+
+    .social-links a {
+        padding: 0.6rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 1rem;
+    }
+
+    .terminal-container {
+        margin: 0 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+
+    .terminal-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .profile-image img {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        padding: 0.6rem;
+    }
+}
+
+.achievement-section {
+    margin: 1.5rem 0;
+}
+
+.achievement-title {
+    font-weight: bold;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-list {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+.achievement-list li {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+.achievement-list li:hover {
+    opacity: 1;
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+.tech-stack {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.cta-text {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.description p {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 0.8rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-3px);
+}
+
+.company-icon {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 6px;
+    object-fit: contain;
 } 
