@@ -14,11 +14,20 @@ document.addEventListener('click', (e) => {
 
 const blogPosts = [
     {
+        title: "Designing A personalized search engine",
+        type: "gdoc",
+        url: "2PACX-1vSrF7GFsjFkGD5hKGG_ad1Sf8CXXIbKMlfmnBap3k3FNkPxtzW8qYFaa_XMXNDLpBA_CnCrpdhyZ-aJ", // Google Doc ID
+        date: "July, 2024",
+        banner: "https://aisera.com/wp-content/uploads/2024/09/search-personalization.png"
+    },
+    {
         title: "The Secret to 10X Your Results: The Power of the 12-Week Year",
+        type: "medium",
         url: "https://medium.com/@TheAdarshGupta/the-secret-to-10x-your-results-the-power-of-the-12-week-year-573856927df1",
         date: "February 26, 2024",
         banner: "https://miro.medium.com/v2/resize:fit:828/format:webp/1*VZfq76DkOkPlfyISlUvYnw.jpeg"
     },
+
     {
         title: "How I Created My AI Girlfriend in 15 Minutes Using OpenAI and ElevenLabs",
         url: "https://medium.com/@TheAdarshGupta/how-i-created-my-ai-girlfriend-in-15-minutes-using-openai-and-elevenlabs-5d2b1cd7dd89",
@@ -41,23 +50,32 @@ const blogPosts = [
 
 function displayBlogs() {
     const blogContainer = document.getElementById('blogContainer');
-
+    
     blogPosts.forEach(post => {
         const blogCard = document.createElement('a');
-        blogCard.href = post.url;
         blogCard.className = 'blog-link';
         blogCard.target = '_blank';
-
+        
+        // Set the correct URL based on post type
+        if (post.type === 'gdoc') {
+            blogCard.href = `https://docs.google.com/document/d/${post.url}/view`;
+        } else {
+            blogCard.href = post.url;
+        }
+        
         blogCard.innerHTML = `
             <div class="blog-card">
                 <img src="${post.banner}" alt="${post.title}" class="blog-banner">
                 <div class="blog-content">
                     <h2 class="blog-title">${post.title}</h2>
-                    <p class="blog-date">${post.date}</p>
+                    <div class="blog-meta">
+                        <p class="blog-date">${post.date}</p>
+                        <span class="blog-type ${post.type}">${post.type === 'gdoc' ? 'Google Doc' : 'Medium'}</span>
+                    </div>
                 </div>
             </div>
         `;
-
+        
         blogContainer.appendChild(blogCard);
     });
 }
@@ -153,19 +171,23 @@ function createProjectCard(project) {
         }
     };
 
+    const linkUrl = project.demoUrl || project.githubUrl || '#';
+    
     return `
-        <div class="project-card">
-            ${createMediaElement(project.media)}
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="project-links">
-                ${project.demoUrl ? `<a href="${project.demoUrl}" target="_blank" class="project-link">Live Demo</a>` : ''}
-                ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link">GitHub</a>` : ''}
+        <a href="${linkUrl}" target="_blank" class="project-card-link">
+            <div class="project-card">
+                ${createMediaElement(project.media)}
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-links">
+                    ${project.demoUrl ? `<span class="project-link">Live Demo</span>` : ''}
+                    ${project.githubUrl ? `<span class="project-link">GitHub</span>` : ''}
+                </div>
+                <div class="project-tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
             </div>
-            <div class="project-tags">
-                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-            </div>
-        </div>
+        </a>
     `;
 }
 
@@ -175,3 +197,190 @@ function loadProjects() {
 }
 
 window.addEventListener('load', loadProjects);
+
+// Sample data structure for shelf items
+const shelfData = {
+    books: [
+        {
+            title: "Designing Data-Intensive Applications",
+            author: "Martin Kleppmann",
+            status: "reading",
+            progress: "Chapter 8"
+        },
+        {
+            title: "Database Internals",
+            author: "Alex Petrov",
+            status: "reading",
+            progress: "Chapter 11"
+        },
+        {
+            title: "Yellow Pages - Operating System Concepts",
+            author: "Silberschatz, Galvin, and Gagne",
+            status: "completed",
+            progress: "done"
+        }
+    ],
+    articles: [
+        {
+            title: "What You'll Wish You'd Known",
+            url: "https://paulgraham.com/hs.html?viewfullsite=1"
+        }
+    ],
+    courses: [
+        {
+            title: "Grokking SOLID Design Principles",
+            platform: "Design Gurus",
+            completion: "0%",
+            url: "https://www.designgurus.io/course/grokking-solid-design-principles"
+        },
+        {
+            title: "Fundamentals of Database Engineering",
+            platform: "Udemy",
+            completion: "100%",
+            url: "https://www.udemy.com/course/database-engines-crash-course/?couponCode=NVDIN35"
+        },
+        {
+            title: "Fundamentals of Network Engineering",
+            platform: "Udemy",
+            completion: "100%",
+            url: "https://www.udemy.com/course/fundamentals-of-networking-for-effective-backend-design/?couponCode=NET-JAN2025-L"
+        },
+        {
+            title: "Fundamentals of Database Engineering",
+            platform: "Udemy",
+            completion: "100%",
+            url: "https://www.udemy.com/course/database-engines-crash-course/?couponCode=DB-JAN2025-L"
+        }
+    ],
+    videos: [
+        // {
+        //     title: "JavaScript Event Loop Explained",
+        //     channel: "Fireship",
+        //     url: "https://youtube.com/..."
+        // }
+    ],
+};
+
+const talksData = [
+    {
+        title: "Story of Adarsh Gupta - A new credit card user",
+        platform: "YouTube",
+        url: "https://www.youtube.com/watch?v=LH4LXvUZUCw&t=30s"
+    },
+    {
+        title: "He has cracked 7 companies including Google, Salesforce, Uber, Sprinklr",
+        platform: "YouTube",
+        url: "https://www.youtube.com/watch?v=Q7dF7qx8N0Y"
+    },
+    {
+        title: "All about Competitive Programming",
+        platform: "YouTube",
+        url: "https://www.youtube.com/watch?v=NQnLsze2cWo"
+    },
+];
+
+function renderShelf() {
+    const shelfTitle = document.querySelector('.shelf-container h2');
+    if (shelfTitle) {
+        shelfTitle.style.marginBottom = '2rem';  // Add space after the title
+    }
+
+    // Only render sections that have items
+    if (shelfData.books.length > 0) renderBooks();
+    if (shelfData.articles.length > 0) renderArticles();
+    if (shelfData.courses.length > 0) renderCourses();
+    if (shelfData.videos.length > 0) renderVideos();
+    
+    // Hide empty section containers
+    document.querySelectorAll('.shelf-section').forEach(section => {
+        const itemsList = section.querySelector('.shelf-items');
+        if (!itemsList.children.length) {
+            section.style.display = 'none';
+        } else {
+            section.style.display = 'block';
+        }
+    });
+}
+
+function renderBooks() {
+    const booksList = document.getElementById('books-list');
+    booksList.innerHTML = shelfData.books.map(book => `
+        <div class="shelf-item">
+            <h4>${book.title}</h4>
+            <p>By ${book.author}</p>
+            <span class="book-status status-${book.status}">
+                ${book.status === 'completed' ? 'Completed' : `${book.status.charAt(0).toUpperCase() + book.status.slice(1)} - ${book.progress}`}
+            </span>
+        </div>
+    `).join('');
+}
+
+function renderArticles() {
+    const articlesList = document.getElementById('articles-list');
+    articlesList.innerHTML = shelfData.articles.map(article => `
+        <a href="${article.url}" target="_blank" class="shelf-item-link">
+            <div class="shelf-item">
+                <h4>${article.title}</h4>
+                ${article.source ? `<p>Source: ${article.source}</p>` : ''}
+            </div>
+        </a>
+    `).join('');
+}
+
+function renderCourses() {
+    const coursesList = document.getElementById('courses-list');
+    coursesList.innerHTML = shelfData.courses.map(course => `
+        <a href="${course.url}" target="_blank" class="shelf-item-link">
+            <div class="shelf-item">
+                <h4>${course.title}</h4>
+                <p>Platform: ${course.platform}</p>
+                <div class="completion-status">Completion: ${course.completion}</div>
+            </div>
+        </a>
+    `).join('');
+}
+
+function renderVideos() {
+    const videosList = document.getElementById('videos-list');
+    videosList.innerHTML = shelfData.videos.map(video => `
+        <div class="shelf-item">
+            <h4>${video.title}</h4>
+            <p>Channel: ${video.channel}</p>
+            <a href="${video.url}" target="_blank">Watch Video</a>
+        </div>
+    `).join('');
+}
+
+function renderTalks() {
+    const talksList = document.getElementById('talks-list');
+    talksList.innerHTML = talksData.map(talk => {
+        const isYouTube = talk.platform.toLowerCase() === "youtube";
+        const videoId = isYouTube ? new URL(talk.url).searchParams.get("v") : null;
+        
+        return `
+            <div class="talks-item">
+                <h4>${talk.title}</h4>
+                <p>Platform: ${talk.platform}</p>
+                ${isYouTube && videoId ? `
+                    <div class="youtube-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/${videoId}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                ` : `
+                    <a href="${talk.url}" target="_blank" class="shelf-item-link">Watch Talk</a>
+                `}
+            </div>
+        `;
+    }).join('');
+}
+
+// Add this to your initialization code
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing code ...
+    renderShelf();
+    renderTalks();
+});
