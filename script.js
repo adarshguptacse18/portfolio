@@ -378,6 +378,7 @@ function renderTalks() {
     }).join('');
 }
 
+
 // Add this to your initialization code
 document.addEventListener('DOMContentLoaded', () => {
     // ... existing code ...

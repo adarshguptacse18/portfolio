@@ -803,3 +803,60 @@ nav {
 .talks-item a:hover {
     opacity: 0.8;
 }
+
+.collaborate-container {
+    padding: 6rem 2rem 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-top: 4rem;
+}
+
+.collaborate-container h2 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.collaborate-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.collaborate-item {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.collaborate-item:hover {
+    transform: translateY(-3px);
+}
+
+.collaborate-item h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.collaborate-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.collaborate-item a {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+.collaborate-item a:hover {
+    opacity: 0.8;
+}
