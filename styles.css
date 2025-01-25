@@ -153,15 +153,15 @@ nav {
     height: 45px;
     border-radius: 50%;
     background: rgba(100, 255, 218, 0.1);
-    color: var(--accent);
+    color: #00bcd4;
     font-size: 1.2rem;
-    transition: all 0.3s ease;
+    transition: color 0.3s;
 }
 
 .social-links a:hover {
     background: rgba(100, 255, 218, 0.2);
     transform: translateY(-3px);
-    color: var(--accent);
+    color: #008ba3;
 }
 
 .profile-section {
@@ -859,4 +859,14 @@ nav {
 
 .collaborate-item a:hover {
     opacity: 0.8;
+}
+
+/* Lighten the color of links in the Collaborate section */
+.collaborate-info a {
+    color: #00bcd4;
+    transition: color 0.3s;
+}
+
+.collaborate-info a:hover {
+    color: #008ba3;
 }
