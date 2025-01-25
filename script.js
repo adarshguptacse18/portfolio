@@ -89,7 +89,7 @@ const projects = [
         description: "Interactive visualization of various algorithms including sorting, pathfinding, and more.",
         demoUrl: "https://visualizing-algorithms.vercel.app/",
         githubUrl: null,
-        media: { type: "image", url: "sort.gif" },
+        media: { type: "image", url: "images/sort.gif" },
         tags: ["Algorithms", "Visualization", "Interactive"]
     },
     {
