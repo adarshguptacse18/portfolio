@@ -142,15 +142,25 @@ nav {
 .social-links {
     display: flex;
     gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .social-links a {
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    transition: color 0.3s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-3px);
     color: var(--accent);
 }
 
@@ -268,7 +278,9 @@ nav {
     }
 
     .social-links a {
-        padding: 0.6rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 
     h1 {
@@ -368,22 +380,6 @@ nav {
 
 .description p {
     margin-bottom: 1rem;
-}
-
-.social-links {
-    margin-top: 2rem;
-}
-
-.social-links a {
-    background: rgba(100, 255, 218, 0.1);
-    padding: 0.8rem;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background: rgba(100, 255, 218, 0.2);
-    transform: translateY(-3px);
 }
 
 .company-icon {
