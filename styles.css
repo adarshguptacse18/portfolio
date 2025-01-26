@@ -4,6 +4,7 @@
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
     --accent: #64ffda;
+    --bg-card: rgba(255, 255, 255, 0.05);  /* New variable for card background */
 }
 
 * {
@@ -153,7 +154,7 @@ nav {
     height: 45px;
     border-radius: 50%;
     background: rgba(100, 255, 218, 0.1);
-    color: #00bcd4;
+    color: #4a90e2;
     font-size: 1.2rem;
     transition: color 0.3s;
 }
@@ -161,7 +162,7 @@ nav {
 .social-links a:hover {
     background: rgba(100, 255, 218, 0.2);
     transform: translateY(-3px);
-    color: #008ba3;
+    color: #357ABD;
 }
 
 .profile-section {
@@ -391,10 +392,11 @@ nav {
 }
 
 .blog-section {
-    padding: 6rem 2rem 2rem;
+    padding: 3rem 2rem 2rem;
     max-width: 1200px;
-    margin: 0 auto;
-}
+    margin: 0 auto 4rem;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;}
 
 .blog-grid {
     display: grid;
@@ -404,7 +406,7 @@ nav {
 }
 
 .blog-card {
-    background: var(--bg-secondary);
+    background: var(--bg-card);  /* Using the variable */
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -465,9 +467,11 @@ nav {
 }
 
 .projects-section {
-    padding: 6rem 2rem 2rem;
+    padding: 3rem 2rem 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 4rem;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
 }
 
 .projects-grid {
@@ -478,7 +482,7 @@ nav {
 }
 
 .project-card {
-    background: var(--card-bg, #ffffff);
+    background: var(--bg-card);  /* Using the variable */
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -638,7 +642,7 @@ nav {
 }
 
 .shelf-container {
-    padding: 6rem 2rem 2rem;
+    padding: 3rem 2rem 2rem;
     background-color: var(--bg-secondary);
     border-radius: 10px;
     margin: 0 auto;
@@ -748,7 +752,7 @@ nav {
 }
 
 .talks-container {
-    padding: 6rem 2rem 2rem;
+    padding: 3rem 2rem 2rem;
     background-color: var(--bg-secondary);
     border-radius: 10px;
     margin: 0 auto;
@@ -805,7 +809,7 @@ nav {
 }
 
 .collaborate-container {
-    padding: 6rem 2rem 2rem;
+    padding: 3rem 2rem 2rem;
     background-color: var(--bg-secondary);
     border-radius: 10px;
     margin: 0 auto;
@@ -863,10 +867,10 @@ nav {
 
 /* Lighten the color of links in the Collaborate section */
 .collaborate-info a {
-    color: #00bcd4;
+    color: #4a90e2;
     transition: color 0.3s;
 }
 
 .collaborate-info a:hover {
-    color: #008ba3;
+    color: #357ABD;
 }
