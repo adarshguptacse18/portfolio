@@ -381,8 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavListeners();
     
     // Existing code for other functionalities
-    displayBlogs();
-    loadProjects();
     renderShelf();
     renderTalks();
 });
