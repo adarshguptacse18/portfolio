@@ -236,7 +236,7 @@ const shelfData = {
             platform: "Design Gurus",
             completion: "100%",
             url: "https://www.designgurus.io/course/grokking-solid-design-principles",
-            notes: "https://thecyberwizard.notion.site/Grokking-SOLID-Principle-9f3427bc92ce406fb1e51719caa48d17"
+            notes: "http://thecyberwizard.notion.site"
         },
         {
             title: "Fundamentals of Database Engineering",
