@@ -1,16 +1,20 @@
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+function setupNavListeners() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
     }
-});
+}
 
 const blogPosts = [
     {
@@ -331,19 +335,6 @@ function renderArticles() {
 function renderCourses() {
     const coursesList = document.getElementById('courses-list');
     coursesList.innerHTML = shelfData.courses.map(course => `
-        <a href="${course.url}" target="_blank" class="shelf-item-link">
-            <div class="shelf-item">
-                <h4>${course.title}</h4>
-                <p>Platform: ${course.platform}</p>
-                <div class="completion-status">Completion: ${course.completion}</div>
-            </div>
-        </a>
-    `).join('');
-}
-
-function renderCourses() {
-    const coursesList = document.getElementById('courses-list');
-    coursesList.innerHTML = shelfData.courses.map(course => `
         <div class="shelf-item">
             <h4>${course.title}</h4>
             <p>Platform: ${course.platform}</p>
@@ -386,7 +377,12 @@ function renderTalks() {
 
 // Add this to your initialization code
 document.addEventListener('DOMContentLoaded', () => {
-    // ... existing code ...
+    // Call setupNavListeners after the nav is inserted
+    setupNavListeners();
+    
+    // Existing code for other functionalities
+    displayBlogs();
+    loadProjects();
     renderShelf();
     renderTalks();
 });

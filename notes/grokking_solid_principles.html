@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grokking SOLID Principles</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Markdown parser library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <script src="/nav.js"></script>
+    <main>
+        <section class="markdown-section">
+            <div class="container">
+                <h1>Grokking SOLID Principles</h1>
+                <div id="markdown-content"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        fetch('grokking_solid_principles.md')
+            .then(response => response.text())
+            .then(markdown => {
+                document.getElementById('markdown-content').innerHTML = marked.parse(markdown);
+            })
+            .catch(error => console.error('Error loading markdown:', error));
+    </script>
+</body>
+</html> 
