@@ -230,8 +230,9 @@ const shelfData = {
         {
             title: "Grokking SOLID Design Principles",
             platform: "Design Gurus",
-            completion: "0%",
-            url: "https://www.designgurus.io/course/grokking-solid-design-principles"
+            completion: "100%",
+            url: "https://www.designgurus.io/course/grokking-solid-design-principles",
+            notes: "https://thecyberwizard.notion.site/Grokking-SOLID-Principle-9f3427bc92ce406fb1e51719caa48d17"
         },
         {
             title: "Fundamentals of Database Engineering",
@@ -340,13 +341,17 @@ function renderCourses() {
     `).join('');
 }
 
-function renderVideos() {
-    const videosList = document.getElementById('videos-list');
-    videosList.innerHTML = shelfData.videos.map(video => `
+function renderCourses() {
+    const coursesList = document.getElementById('courses-list');
+    coursesList.innerHTML = shelfData.courses.map(course => `
         <div class="shelf-item">
-            <h4>${video.title}</h4>
-            <p>Channel: ${video.channel}</p>
-            <a href="${video.url}" target="_blank">Watch Video</a>
+            <h4>${course.title}</h4>
+            <p>Platform: ${course.platform}</p>
+            <div class="completion-status">Completion: ${course.completion}</div>
+            <div class="course-links">
+                <a href="${course.url}" target="_blank" class="course-link">Course</a>
+                ${course.notes ? `<a href="${course.notes}" target="_blank" class="notes-link">| Notes</a>` : ''}
+            </div>
         </div>
     `).join('');
 }
