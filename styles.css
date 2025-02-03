@@ -874,3 +874,8 @@ nav {
 .collaborate-info a:hover {
     color: #357ABD;
 }
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
